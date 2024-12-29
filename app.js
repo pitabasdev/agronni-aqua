@@ -23,7 +23,7 @@ const json2csv = require("json2csv").parse;
 const path = require("path");
 //
 
-const ADMIN_CODE = process.env.ADMIN_CODE;
+const ADMIN_CODE = "cutm123";
 // console.log(ADMIN_CODE)
 const JWT_SECRET =
   "nuifbewiudfbewiudsfbweufiiuw783278278782378#%$#$#$#$#%$#*y7biuyguyjyvfytjyvfttjyvf";
@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }, () => {
+mongoose.connect("mongodb+srv://rkmishra:Rajesh%401234@cluster0.mrlyr.mongodb.net/aquaponics?retryWrites=true&w=majority", { useNewUrlParser: true }, () => {
   console.log("Connected to database !");
 });
 
@@ -522,7 +522,7 @@ app.get("/logout", (req, res) => {
   res.cookie("token", "").redirect("/login");
 });
 
-const port = process.env.PORT || 80;
+const port = 5000;
 app.listen(port, () => {
   console.log(`server Started ${port}`);
 });
